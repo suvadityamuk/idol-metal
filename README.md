@@ -153,6 +153,37 @@ A fast step (both guidance passes) takes about 1.4 s against 2.9-3.0 s for the o
 measured effect, including the rejected ones, is in [docs/ab-log.md](docs/ab-log.md); the profile that motivated them
 is in [docs/profile.md](docs/profile.md).
 
+## Optimizations: where the time went
+
+The sampler is 98.5% of a request (150.9 s of 153.1 s), so that is where the work went. In one official forward,
+attention and the matrix multiplies already run at the hardware rate; about 45% of the time is elementwise glue
+around them (fp32 round trips, complex-number RoPE, separate norm, modulation and residual kernels). Per sampling
+step (both guidance passes), robot, 262,144 Gaussians, fast build and official build interleaved in one process:
+
+| step | what changed | fast vs official, ms per step | speed-up so far | error added |
+|---|---|---:|---:|---|
+| 1 | **Stop recomputing.** Context stream once per request; noise refiner, camera refiner and time embedding once per step, shared by both passes | 2,824 vs 2,898 | 1.03x | none (bit-equal) |
+| 2 | **One context token in the unconditional pass.** Its 4,101 context tokens are identical, so attention sees one token with weight 4,101, carried by an fp16 key bias split over two copies of the token | 2,325 vs 2,984 | 1.28x | guided velocity rel. 7.8e-4 to 1.2e-3; conditional pass still bit-equal |
+| 3 | **Fused Metal kernels** for the glue: residual + LayerNorm + adaLN + RePo LayerNorm in one pass; RePo angles + RoPE + q/k RMSNorm in one pass; in-place GELU | 1,604 vs 2,905 | 1.81x | none beyond step 2 |
+| 4 | **fc1 multiply + bias + GELU in one Metal 4 `matmul2d` kernel** (3.25 vs 4.09 ms per call) | 1,910 vs 1,982 with the fusion off | 1.04x on top | none (bit-equal) |
+| 5 | **Kernels loaded as the packaged build** instead of runtime-compiled shaders | 1,576 vs 1,649 | 1.05x on top | none (bit-equal) |
+
+Steps 1, 3, 4 and 5 change no bits; only step 2 does, and the parity build is the fast build without it (2,112
+against 3,023 ms per step, 1.43x, byte-identical output). Running steps back to back, a fast step takes 1,405 ms;
+the estimated floor with the stock attention and matrix multiplies is about 1,250 ms.
+
+Outside the sampler, the **Gaussian decoder** runs on the same kernels, bit-equal: 476 against 631 ms at 262,144
+Gaussians (1.33x), 4,907 against 5,284 ms at 1,048,576 (1.08x).
+
+Tried and dropped, with the measurement:
+
+| idea | result |
+|---|---|
+| fp32 mask for the one-token pass | 7,914 ms per step (0.35x): an fp32 mask falls off the fast attention kernel (253 vs 11.5 ms per call) |
+| `torch.compile` of the restructured blocks instead of hand kernels | 1,761 ms per step: slower than 1,604 and less close |
+| Re-tuned attention tiles | best 21.86 against 21.61 ms: nothing beyond noise |
+| Hand-written matrix multiply | 31.8 against 31.9 TFLOP/s: no gain alone, useful only to fuse the GELU |
+
 ## Benchmark
 
 <picture>
