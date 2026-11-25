@@ -1,0 +1,6 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 4484.93it/s]
+W1124 12:57:52.999000 13551 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 7450.20it/s]
+loaded in 3.9s; optimize=False; attn=sdpa
+run 0: preprocess/birefnet=0.44s, preprocess=0.47s, encode/dinov3=0.45s, encode/flux2_vae=0.31s, sample=172.51s, decode/octree=0.83s, decode/gaussian_decoder=6.90s, decode/to_representation=0.02s, total=181.49s, save_ply=0.09s; peak footprint 18.2 GB, mps driver 9.4 GB; ply 82822d7bd0cd58be
+dump: dumps/ref_robot_1048576_B.safetensors (1197 tensors)

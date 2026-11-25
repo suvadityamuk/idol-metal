@@ -1,0 +1,18 @@
+# Tested stack: Apple M5 Pro, macOS 26.6.2, Python 3.13. pip install -r requirements.txt
+torch==2.15.0
+torchvision==0.29.2
+idol @ https://github.com/speridlabs/idol-sdk/archive/8db700349a5570aac390e4780fa32e3eed6b587a.tar.gz
+transformers==5.23.0
+diffusers==0.43.0
+accelerate==1.16.0
+huggingface_hub==2.4.0
+safetensors==0.8.0
+pillow==13.0.0
+numpy==2.5.5
+plyfile==1.1.5
+tqdm==4.70.1
+tensordict==0.15.6
+# get_local_kernel / get_kernel for the torch Metal package; 0.18.3 is the version that was tested
+kernels==0.18.3
+# only for tools/closeness.py
+scipy==1.18.1

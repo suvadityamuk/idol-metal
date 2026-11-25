@@ -1,0 +1,6 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1652.21it/s]
+W1124 14:16:09.442000 77017 .venv/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 7288.11it/s]
+compile: loaded in 5.0s
+warm-up 6.1s
+run: preprocess/birefnet=0.30s, preprocess=0.34s, encode/dinov3=0.44s, encode/flux2_vae=0.30s, sample=129.62s, decode/octree=0.46s, decode/gaussian_decoder=0.78s, decode/to_representation=0.01s, total=131.96s, save_ply=0.02s; peak footprint 10.5 GB, mps driver 9.4 GB

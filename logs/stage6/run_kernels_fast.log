@@ -1,0 +1,6 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1178.04it/s]
+W1124 16:20:07.473000 82321 .venv/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 7044.03it/s]
+device: mps (MPS); build: fast, kernels from local build ./kernel
+generated 262144 Gaussians in 79.9 s
+fig-robot-cute: runs/s6_kernels_fast/fig-robot-cute.ply

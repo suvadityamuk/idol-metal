@@ -1,0 +1,105 @@
+{
+  "args": {
+    "impl": "torch",
+    "dump": "dumps/ref_dev_A.safetensors",
+    "steps": 2,
+    "no_collapse": true,
+    "ref_timing": 1,
+    "reps": 2,
+    "compile": false,
+    "json": "logs/ab_c1a_torch_nocollapse.json"
+  },
+  "prepare_s": 0.07331441668793559,
+  "fast_step_s": [
+    2.6078562908805907,
+    2.723115083295852,
+    2.8243185416795313,
+    2.9217592920176685
+  ],
+  "ref_step_s": [
+    2.7182167498394847,
+    2.7445518746972084,
+    2.8979506669566035,
+    3.0286523327231407
+  ],
+  "errors": [
+    {
+      "step": 0,
+      "v_cond.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_uncond.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_guided.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_cond.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_uncond.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_guided.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      }
+    },
+    {
+      "step": 1,
+      "v_cond.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_uncond.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_guided.latent": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_cond.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_uncond.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      },
+      "v_guided.camera": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rel_l2": 0.0,
+        "bit_equal": true
+      }
+    }
+  ]
+}

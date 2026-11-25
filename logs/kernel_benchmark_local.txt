@@ -1,0 +1,5 @@
+workload                  kernel ms   torch ms  speed-up  allclose  exact
+linear_gelu_fc1               3.477      4.058     1.17x  True      True
+repo_rope_qk                  0.403      5.730    14.22x  True      True
+resid_ln_mod                  0.645      3.961     6.15x  True      True
+rmsnorm_heads                 0.193      2.525    13.08x  True      True

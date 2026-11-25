@@ -1,0 +1,15 @@
+device:  Apple silicon, MPS, macOS 26.6.2, torch 2.15.0
+build:   parity (byte-identical to the official pipeline on MPS on the tested setup)
+kernels: local kernel-builder build kernel (kernels 0.18.3)
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 580.80it/s]
+W1125 10:07:39.811000 99332 .venv/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights:  18%|█▊        | 111/615 [00:00<00:00, 1060.65it/s]Loading weights:  37%|███▋      | 225/615 [00:00<00:00, 1085.23it/s]Loading weights:  55%|█████▌    | 339/615 [00:00<00:00, 1078.53it/s]Loading weights:  74%|███████▎  | 453/615 [00:00<00:00, 1074.21it/s]Loading weights:  92%|█████████▏| 567/615 [00:00<00:00, 1067.27it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 1094.40it/s]
+load:    7.2 s (weights, encoders)
+request: 109.4 s (first request in this process: includes one-off shader compilation)
+export:  0.05 s -> runs/infer/robot_parity.ply, runs/infer/robot_parity_input.png, runs/infer/robot_parity_camera.json
+total:   118.2 s wall (including start-up and loading)
+sha256:  d5a02236cfa63867881d66ebbca7bad7695d32dddaeba58d588c47f6f52a9338
+check vs runs/ref_robot_262144_A/run0.ply: PLY BYTE-IDENTICAL
+real 118.82
+user 5.53
+sys 6.27

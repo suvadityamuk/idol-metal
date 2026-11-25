@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+dumps/
+runs/
+outputs/
+logs/kernel_build*.log
+*.ply
+*.safetensors
+.env
+.DS_Store
+build/
+third_party/torch_metallib/

@@ -1,0 +1,24 @@
+idol-metal
+Copyright 2026 Suvaditya Mukherjee
+
+This is an unofficial Apple-silicon (PyTorch MPS + Metal) port of Idol (single image to 3D Gaussians) by Speri Labs.
+It is not affiliated with or endorsed by Speri Labs.
+
+It contains code derived from idol-sdk (https://github.com/speridlabs/idol-sdk, commit 8db7003),
+Copyright Speri Labs, licensed under the Apache License, Version 2.0:
+  - fast/: a re-implementation of idol-sdk's sampler and Gaussian-decoder forward that imports and reuses idol-sdk's
+    modules;
+  - native/: an Objective-C++/Metal port of idol-sdk's denoiser sampling loop;
+  - kernel/: fused Metal kernels replacing op chains of idol-sdk's models.
+
+Portions of kernel/idol_metal/idol_kernels.metal mirror PyTorch's MPS kernels (aten/src/ATen/native/mps/kernels and
+c10/metal/reduction_utils.h), Copyright (c) Meta Platforms, Inc. and affiliates, BSD 3-Clause licence
+(https://github.com/pytorch/pytorch/blob/main/LICENSE).
+
+The experimental native runner (scripts/run_native.sh) loads PyTorch 2.15's Metal library (metal_40.metallib) for its
+attention kernel. That file is not distributed here; it is extracted from a PyTorch wheel by the user.
+
+Model weights are not distributed here. Idol's weights (https://huggingface.co/speridlabs/idol) and the gated image
+encoders it uses, DINOv3 (https://huggingface.co/facebook/dinov3-vith16plus-pretrain-lvd1689m) and the FLUX.2-dev VAE
+(https://huggingface.co/black-forest-labs/FLUX.2-dev), are downloaded from the Hugging Face Hub at run time and are
+governed by their own licences.

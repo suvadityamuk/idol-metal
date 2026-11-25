@@ -1,0 +1,7 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 2275.80it/s]
+W1124 13:11:09.341000 16641 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights:  19%|█▊        | 115/615 [00:00<00:00, 1148.78it/s]Loading weights:  39%|███▉      | 240/615 [00:00<00:00, 1198.70it/s]Loading weights:  59%|█████▊    | 360/615 [00:00<00:00, 1150.85it/s]Loading weights:  77%|███████▋  | 476/615 [00:00<00:00, 1133.03it/s]Loading weights:  96%|█████████▌| 590/615 [00:00<00:00, 1108.09it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 1142.89it/s]
+replaying 75 random tensors from dumps/ref_dev_A.safetensors
+loaded in 6.5s; optimize=False; attn=sdpa
+run 0: preprocess/birefnet=0.41s, preprocess=0.45s, encode/dinov3=0.45s, encode/flux2_vae=0.31s, sample=11.22s, decode/octree=0.24s, decode/gaussian_decoder=0.13s, decode/to_representation=0.00s, total=12.82s, save_ply=0.00s; peak footprint 13.0 GB, mps driver 9.4 GB; ply 2844ebf2cd067da8
+dump: dumps/ref_dev_replay.safetensors (493 tensors)

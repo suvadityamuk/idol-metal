@@ -1,0 +1,33 @@
+{
+  "title": "Idol on an Apple M5 Pro (PyTorch MPS): seconds per request",
+  "subtitle": "robot example, 50 steps, 262,144 Gaussians; one process and one timed request per row (after a warm-up), same session",
+  "footnote": "Apple M5 Pro 64 GB, macOS 26.6.2, torch 2.15.0; 2026-11-24, round 1. Excludes model load (4-5 s) and the warm-up. Single measurement per row; wall time drifted up to 14% between sessions, so compare within this chart only. Source: docs/benchmark.md",
+  "unit": "s",
+  "baseline": "official pipeline",
+  "rows": [
+    {
+      "label": "official pipeline",
+      "detail": "as shipped (eager on MPS)",
+      "value": 168.913,
+      "group": "official"
+    },
+    {
+      "label": "official, torch.compile",
+      "detail": "optimize path forced onto MPS",
+      "value": 131.961,
+      "group": "official"
+    },
+    {
+      "label": "idol-metal parity build",
+      "detail": "byte-identical .ply",
+      "value": 118.16,
+      "group": "port"
+    },
+    {
+      "label": "idol-metal fast build",
+      "detail": "kernels + restructured sampler",
+      "value": 96.332,
+      "group": "port"
+    }
+  ]
+}

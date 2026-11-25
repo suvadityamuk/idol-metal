@@ -1,0 +1,32 @@
+{
+ "latent": {
+  "max_abs": 2.9196088314056396,
+  "mean_abs": 0.017667781991108578,
+  "rel_l2": 0.03689629441232032,
+  "bit_equal": false
+ },
+ "camera": {
+  "max_abs": 0.0015993714332580566,
+  "mean_abs": 0.0008713420480489731,
+  "rel_l2": 0.001443864569098168,
+  "bit_equal": false
+ },
+ "anchors": {
+  "n": 8192,
+  "cell_multiset_overlap": 0.223388671875,
+  "identical_cells": false
+ },
+ "gaussians_set": {
+  "chamfer_mean": 0.0017801255439610472,
+  "nn_dist_p99": 0.009490021650634329,
+  "nn_dist_max": 0.081949095811918,
+  "nn_colour_abs_mean": 0.14645503091582204,
+  "nn_colour_abs_p99": 1.532364087104779,
+  "nn_opacity_abs_mean": 0.11617170515558986,
+  "nn_opacity_abs_p99": 0.8911393886804586,
+  "nn_logscale_abs_mean": 0.5317957266585532,
+  "nn_logscale_abs_p99": 2.2771158123016266,
+  "nn_rot_deg_mean": 91.6606907380097,
+  "nn_rot_deg_p99": 179.31680297851562
+ }
+}

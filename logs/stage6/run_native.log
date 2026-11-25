@@ -1,0 +1,11 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1552.30it/s]
+W1124 16:23:27.905000 82647 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 6889.37it/s]
+wrote runs/s6_native/inputs_robot_s42.safetensors
+device: Apple M5 Pro; build: native fast (fused kernels, MPS GEMM, PyTorch prefill attention)
+prepare 0.07 s, sampling 92.76 s (50 steps, cfg 3.00, rescale_t 3.00)
+wrote runs/s6_native/latent.safetensors
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1221.33it/s]
+W1124 16:25:07.960000 82994 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 7316.39it/s]
+wrote runs/s6_native/gaussians.ply and runs/s6_native/gaussians_outputs.safetensors

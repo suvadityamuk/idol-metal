@@ -1,0 +1,13 @@
+device:  Apple silicon, MPS, macOS 26.6.2, torch 2.15.0
+build:   fast (restructured sampler + idol-metal kernels)
+kernels: local kernel-builder build kernel (kernels 0.18.3)
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 624.54it/s]
+W1125 10:09:43.663000 99611 .venv/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights: 100%|██████████| 615/615 [00:00<00:00, 7026.65it/s]
+load:    4.3 s (weights, encoders)
+request: 86.4 s (first request in this process: includes one-off shader compilation)
+export:  0.04 s -> runs/infer/robot_fast.ply, runs/infer/robot_fast_input.png, runs/infer/robot_fast_camera.json
+total:   92.4 s wall (including start-up and loading)
+sha256:  4dcb89dd5a5bb043a04adfc15eb0ec8d1b57e441957a765cd952dd7e99391cda
+dump:    runs/infer/robot_fast.safetensors
+check vs runs/bench/r1_fast_robot_262144/run0.ply: PLY BYTE-IDENTICAL
